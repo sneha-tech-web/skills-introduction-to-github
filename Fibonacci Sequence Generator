@@ -1,0 +1,7 @@
+terms = int(input("Enter number of terms: "))
+a, b = 0, 1
+fib_sequence = []
+for _ in range(terms):
+    fib_sequence.append(a)
+    a, b = b, a + b
+print("Fibonacci sequence:", fib_sequence)
