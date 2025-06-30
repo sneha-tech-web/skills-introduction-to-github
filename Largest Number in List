@@ -1,0 +1,3 @@
+numbers = input("Enter numbers separated by space: ").split()
+numbers = list(map(float, numbers))
+print("Largest number is:", max(numbers))
