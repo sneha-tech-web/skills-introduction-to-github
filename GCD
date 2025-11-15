@@ -1,0 +1,4 @@
+import math
+a = int(input("A: "))
+b = int(input("B: "))
+print("GCD =", math.gcd(a, b))
