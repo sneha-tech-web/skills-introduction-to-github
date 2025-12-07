@@ -1,0 +1,10 @@
+text = input("Enter a sentence: ")
+
+count = 0
+words = text.split()
+
+for w in words:
+    if len(w) > 0 and w[0].isalpha() and w[0].isupper():
+        count += 1
+
+print("Words starting with uppercase:", count)
