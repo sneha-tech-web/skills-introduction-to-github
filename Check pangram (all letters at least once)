@@ -1,0 +1,13 @@
+s = input("Enter a string: ").lower()
+letters = "abcdefghijklmnopqrstuvwxyz"
+found_all = True
+
+for ch in letters:
+    if ch not in s:
+        found_all = False
+        break
+
+if found_all:
+    print("Pangram")
+else:
+    print("Not a pangram")
