@@ -1,0 +1,11 @@
+s = input("Enter a string: ")
+length = len(s)
+
+if length % 2 != 0:
+    print("Not symmetrical")
+else:
+    half = length // 2
+    if s[:half] == s[half:]:
+        print("Symmetrical")
+    else:
+        print("Not symmetrical")
