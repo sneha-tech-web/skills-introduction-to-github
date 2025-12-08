@@ -1,0 +1,17 @@
+s1 = input("String 1: ").lower().replace(" ", "")
+s2 = input("String 2: ").lower().replace(" ", "")
+
+# Manual counting using loops
+if len(s1) != len(s2):
+    print("Not anagrams")
+else:
+    is_anagram = True
+    for ch in s1:
+        if s1.count(ch) != s2.count(ch):
+            is_anagram = False
+            break
+
+    if is_anagram:
+        print("Anagrams")
+    else:
+        print("Not anagrams")
