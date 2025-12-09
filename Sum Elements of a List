@@ -1,0 +1,2 @@
+nums = [5, 3, 8, 2]
+print("Sum =", sum(nums))
