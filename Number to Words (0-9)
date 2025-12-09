@@ -1,0 +1,4 @@
+words = ["zero","one","two","three","four","five","six","seven","eight","nine"]
+
+n = int(input("Enter number 0-9: "))
+print(words[n])
