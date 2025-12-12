@@ -1,0 +1,5 @@
+x = 5
+y = 7
+ans = int(input(f"What is {x} + {y}? "))
+
+print("Correct!" if ans == x+y else "Wrong!")
