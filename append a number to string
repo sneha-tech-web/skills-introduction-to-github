@@ -1,0 +1,4 @@
+s = "123"
+num = 4
+s = s + str(num)
+print(s)
