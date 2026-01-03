@@ -1,0 +1,10 @@
+n = int(input("Enter odd number: "))
+mid = n // 2
+
+for i in range(n):
+    for j in range(n):
+        if i == mid or j == mid or i == j or i + j == n - 1:
+            print("*", end=" ")
+        else:
+            print(" ", end=" ")
+    print()
