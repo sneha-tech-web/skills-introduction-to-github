@@ -1,0 +1,60 @@
+from collections import deque
+
+# --- Input the graph ---
+graph = {}
+
+edges = int(input("Enter number of edges: "))
+for _ in range(edges):
+    u, v = input("Enter edge (u v): ").split()
+    if u not in graph:
+        graph[u] = []
+    if v not in graph:
+        graph[v] = []
+    graph[u].append(v)
+    graph[v].append(u)   # undirected graph
+
+# --- Input source and goal node ---
+source = input("Enter source node: ")
+goal = input("Enter goal node: ")
+
+# -------- BFS Traversal --------
+visited = set()
+queue = deque([source])
+bfs_order = []
+
+while queue:
+    node = queue.popleft()
+    if node not in visited:
+        visited.add(node)
+        bfs_order.append(node)
+
+        if node == goal:
+            print("Goal found in BFS!")
+            break
+
+        for neighbor in graph[node]:
+            if neighbor not in visited:
+                queue.append(neighbor)
+
+# -------- DFS Traversal --------
+visited = set()
+stack = [source]
+dfs_order = []
+
+while stack:
+    node = stack.pop()
+    if node not in visited:
+        visited.add(node)
+        dfs_order.append(node)
+
+        if node == goal:
+            print("Goal found in DFS!")
+            break
+
+        for neighbor in reversed(graph[node]):
+            if neighbor not in visited:
+                stack.append(neighbor)
+
+# --- Print Results ---
+print("BFS Traversal till goal:", bfs_order)
+print("DFS Traversal till goal:", dfs_order) bfs and dfs with goal node
