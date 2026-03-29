@@ -1,0 +1,22 @@
+# Codename: EchoCalc
+
+def calculate(a, b, op):
+    if op == "+":
+        return a + b
+    elif op == "-":
+        return a - b
+    elif op == "*":
+        return a * b
+    elif op == "/":
+        return a / b if b != 0 else "Error: Division by zero"
+    else:
+        return "Invalid operation"
+
+# Input
+num1 = float(input("Enter first number: "))
+op = input("Enter operation (+, -, *, /): ")
+num2 = float(input("Enter second number: "))
+
+# Output
+result = calculate(num1, num2, op)
+print("EchoCalc Result:", result)
