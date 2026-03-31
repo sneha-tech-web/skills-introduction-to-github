@@ -1,0 +1,22 @@
+import heapq
+
+graph = {
+    'A': [('B', 1), ('C', 4)],
+    'B': [('C', 2)],
+    'C': []
+}
+
+def dijkstra(start):
+    pq = [(0, start)]
+    dist = {start: 0}
+
+    while pq:
+        cost, node = heapq.heappop(pq)
+        for n, w in graph[node]:
+            new_cost = cost + w
+            if n not in dist or new_cost < dist[n]:
+                dist[n] = new_cost
+                heapq.heappush(pq, (new_cost, n))
+    print(dist)
+
+dijkstra('A')
