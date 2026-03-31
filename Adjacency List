@@ -1,0 +1,10 @@
+graph = {}
+
+def add_edge(u, v):
+    graph.setdefault(u, []).append(v)
+    graph.setdefault(v, []).append(u)
+
+add_edge("A", "B")
+add_edge("A", "C")
+
+print(graph)
