@@ -1,0 +1,16 @@
+import heapq
+
+graph = {'A': [('B',1), ('C',3)], 'B':[('D',1)], 'C':[('D',1)], 'D':[]}
+h = {'A':3, 'B':1, 'C':1, 'D':0}
+
+def astar(start, goal):
+    pq = [(0, start)]
+    while pq:
+        cost, node = heapq.heappop(pq)
+        print(node, end=" ")
+        if node == goal:
+            break
+        for n, w in graph[node]:
+            heapq.heappush(pq, (cost + w + h[n], n))
+
+astar('A', 'D')
