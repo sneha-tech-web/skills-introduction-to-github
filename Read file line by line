@@ -1,0 +1,6 @@
+try:
+    with open("sample.txt", "r") as f:
+        for i, line in enumerate(f, 1):
+            print(f"{i}: {line.strip()}")
+except FileNotFoundError:
+    print("File not found!")
