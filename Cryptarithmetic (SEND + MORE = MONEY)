@@ -1,0 +1,17 @@
+from itertools import permutations
+
+letters = 'SENDMORY'
+digits = range(10)
+
+for perm in permutations(digits, len(letters)):
+    d = dict(zip(letters, perm))
+    
+    if d['S'] == 0 or d['M'] == 0:
+        continue
+
+    send = 1000*d['S'] + 100*d['E'] + 10*d['N'] + d['D']
+    more = 1000*d['M'] + 100*d['O'] + 10*d['R'] + d['E']
+    money = 10000*d['M'] + 1000*d['O'] + 100*d['N'] + 10*d['E'] + d['Y']
+
+    if send + more == money:
+        print(d)
