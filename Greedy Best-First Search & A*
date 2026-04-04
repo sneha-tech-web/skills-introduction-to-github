@@ -1,0 +1,30 @@
+import heapq
+
+def greedy_bfs(graph, start, goal, h):
+    pq = [(h[start], start, [start])]
+    visited = set()
+
+    while pq:
+        _, node, path = heapq.heappop(pq)
+        if node == goal:
+            return path
+        if node not in visited:
+            visited.add(node)
+            for neighbor, _ in graph[node]:
+                heapq.heappush(pq, (h[neighbor], neighbor, path + [neighbor]))
+
+def astar(graph, start, goal, h):
+    pq = [(h[start], 0, start, [start])]
+    visited = set()
+
+    while pq:
+        f, g, node, path = heapq.heappop(pq)
+        if node == goal:
+            return path
+        if node not in visited:
+            visited.add(node)
+            for neighbor, cost in graph[node]:
+                heapq.heappush(pq, (g + cost + h[neighbor], g + cost, neighbor, path + [neighbor]))
+
+print("Greedy:", greedy_bfs(graph, 'A', 'D', heuristics))
+print("A*:", astar(graph, 'A', 'D', heuristics))
