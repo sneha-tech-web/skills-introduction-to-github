@@ -1,0 +1,27 @@
+import heapq
+
+def dijkstra(graph, goal):
+    dist = {node: float('inf') for node in graph}
+    dist[goal] = 0
+    pq = [(0, goal)]
+
+    while pq:
+        cost, node = heapq.heappop(pq)
+        for neighbor, weight in graph[node]:
+            new_cost = cost + weight
+            if new_cost < dist[neighbor]:
+                dist[neighbor] = new_cost
+                heapq.heappush(pq, (new_cost, neighbor))
+    return dist  # heuristic values
+
+# Example graph
+graph = {
+    'A': [('B', 1), ('C', 4)],
+    'B': [('A', 1), ('D', 2)],
+    'C': [('A', 4), ('D', 1)],
+    'D': [('B', 2), ('C', 1)]
+}
+
+goal = 'D'
+heuristics = dijkstra(graph, goal)
+print("Admissible heuristics:", heuristics)
