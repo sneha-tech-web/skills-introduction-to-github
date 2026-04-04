@@ -1,0 +1,32 @@
+def is_valid(node, color, assignment, graph):
+    for neighbor in graph[node]:
+        if neighbor in assignment and assignment[neighbor] == color:
+            return False
+    return True
+
+def select_unassigned(assignment, domains):
+    return min([v for v in domains if v not in assignment], key=lambda v: len(domains[v]))
+
+def backtrack(assignment, domains, graph):
+    if len(assignment) == len(graph):
+        return assignment
+
+    var = select_unassigned(assignment, domains)
+
+    for color in domains[var]:
+        if is_valid(var, color, assignment, graph):
+            assignment[var] = color
+            result = backtrack(assignment, domains, graph)
+            if result:
+                return result
+            del assignment[var]
+    return None
+
+graph = {
+    'A': ['B','C'],
+    'B': ['A','C'],
+    'C': ['A','B']
+}
+
+domains = {v: ['Red','Green','Blue'] for v in graph}
+print(backtrack({}, domains, graph))
