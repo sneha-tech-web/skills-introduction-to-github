@@ -1,0 +1,28 @@
+def alphabeta(board, depth, alpha, beta, is_max):
+    winner = check_winner(board)
+    if winner == 'X': return -1
+    if winner == 'O': return 1
+    if is_full(board): return 0
+
+    if is_max:
+        value = -math.inf
+        for i in range(9):
+            if board[i] == ' ':
+                board[i] = 'O'
+                value = max(value, alphabeta(board, depth+1, alpha, beta, False))
+                board[i] = ' '
+                alpha = max(alpha, value)
+                if alpha >= beta:
+                    break
+        return value
+    else:
+        value = math.inf
+        for i in range(9):
+            if board[i] == ' ':
+                board[i] = 'X'
+                value = min(value, alphabeta(board, depth+1, alpha, beta, True))
+                board[i] = ' '
+                beta = min(beta, value)
+                if beta <= alpha:
+                    break
+        return value
