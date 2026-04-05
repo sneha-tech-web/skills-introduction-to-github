@@ -1,0 +1,10 @@
+import nltk
+from nltk.corpus import brown
+
+nltk.download('brown')
+
+# Prepare training data
+tagged = brown.tagged_sents(tagset='universal')
+
+# Count transitions & emissions (simplified)
+# Build HMM model similarly using frequency counts
