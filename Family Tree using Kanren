@@ -1,0 +1,22 @@
+from kanren import Relation, facts, run, var
+from kanren.core import lall
+
+# Define relations
+parent = Relation()
+
+# Add facts
+facts(parent,
+      ("john", "mary"),
+      ("john", "bob"),
+      ("mary", "alice"),
+      ("bob", "james"))
+
+# Variables
+x, y, z = var(), var(), var()
+
+# Grandparent rule
+def grandparent(x, z):
+    return lall(parent(x, y), parent(y, z))
+
+# Query
+print("Grandparents of alice:", run(0, x, grandparent(x, "alice")))
