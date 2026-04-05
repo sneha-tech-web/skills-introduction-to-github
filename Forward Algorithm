@@ -1,0 +1,20 @@
+import numpy as np
+
+states = ['Rainy', 'Sunny']
+obs = ['walk', 'shop', 'clean']
+
+start_prob = np.array([0.6, 0.4])
+trans_prob = np.array([[0.7, 0.3],
+                       [0.4, 0.6]])
+emit_prob = np.array([[0.1, 0.4, 0.5],
+                      [0.6, 0.3, 0.1]])
+
+obs_seq = [0, 1, 2]  # walk, shop, clean
+
+def forward():
+    alpha = start_prob * emit_prob[:, obs_seq[0]]
+    for t in range(1, len(obs_seq)):
+        alpha = (alpha @ trans_prob) * emit_prob[:, obs_seq[t]]
+    return sum(alpha)
+
+print("Likelihood:", forward())
