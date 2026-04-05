@@ -1,0 +1,40 @@
+class Minesweeper:
+    def __init__(self, board):
+        self.board = board
+        self.size = len(board)
+
+    def get_neighbors(self, x, y):
+        neighbors = []
+        for i in range(max(0, x-1), min(self.size, x+2)):
+            for j in range(max(0, y-1), min(self.size, y+2)):
+                if (i, j) != (x, y):
+                    neighbors.append((i, j))
+        return neighbors
+
+    def infer(self):
+        safe = set()
+        mines = set()
+
+        for i in range(self.size):
+            for j in range(self.size):
+                if isinstance(self.board[i][j], int):
+                    neighbors = self.get_neighbors(i, j)
+                    unknown = [n for n in neighbors if self.board[n[0]][n[1]] == '?']
+
+                    if self.board[i][j] == len(unknown):
+                        mines.update(unknown)
+                    elif self.board[i][j] == 0:
+                        safe.update(unknown)
+
+        return safe, mines
+
+
+board = [
+    [1, '?', '?'],
+    [1, 2, '?'],
+    [0, 1, '?']
+]
+
+solver = Minesweeper(board)
+print("Safe:", solver.infer()[0])
+print("Mines:", solver.infer()[1])
