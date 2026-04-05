@@ -1,0 +1,26 @@
+def viterbi(obs_seq):
+    n_states = len(states)
+    T = len(obs_seq)
+
+    dp = np.zeros((n_states, T))
+    ptr = np.zeros((n_states, T), dtype=int)
+
+    dp[:, 0] = start_prob * emit_prob[:, obs_seq[0]]
+
+    for t in range(1, T):
+        for s in range(n_states):
+            prob = dp[:, t-1] * trans_prob[:, s]
+            ptr[s, t] = np.argmax(prob)
+            dp[s, t] = max(prob) * emit_prob[s, obs_seq[t]]
+
+    path = []
+    last = np.argmax(dp[:, -1])
+    path.append(last)
+
+    for t in range(T-1, 0, -1):
+        last = ptr[last, t]
+        path.append(last)
+
+    return path[::-1]
+
+print("Best path:", viterbi(obs_seq))
