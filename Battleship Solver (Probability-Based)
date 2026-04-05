@@ -1,0 +1,29 @@
+import random
+
+class Battleship:
+    def __init__(self, size=5):
+        self.size = size
+        self.board = [["~"] * size for _ in range(size)]
+        self.ship = (random.randint(0, size-1), random.randint(0, size-1))
+        self.guesses = []
+
+    def guess(self, x, y):
+        self.guesses.append((x, y))
+        return (x, y) == self.ship
+
+    def probability_grid(self):
+        prob = [[1 for _ in range(self.size)] for _ in range(self.size)]
+        for (x, y) in self.guesses:
+            prob[x][y] = 0
+        return prob
+
+game = Battleship()
+
+for _ in range(10):
+    prob = game.probability_grid()
+    x, y = max(((i, j) for i in range(5) for j in range(5)), key=lambda k: prob[k[0]][k[1]])
+    if game.guess(x, y):
+        print("Hit at:", (x, y))
+        break
+    else:
+        print("Miss:", (x, y))
