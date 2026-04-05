@@ -1,0 +1,12 @@
+def check_addoku(grid):
+    # Row sum constraint
+    for row in grid:
+        if sum(row) != 45:
+            return False
+
+    # Column sum
+    for col in zip(*grid):
+        if sum(col) != 45:
+            return False
+
+    return True
