@@ -1,0 +1,21 @@
+from kanren import Relation, facts, run, var
+from kanren.core import lall
+
+parent = Relation()
+female = Relation()
+
+# Load file
+with open("family.txt") as f:
+    for line in f:
+        rel, a, b = line.strip().split()
+        if rel == "parent":
+            facts(parent, (a, b))
+        elif rel == "female":
+            facts(female, (a, b))
+
+x, y = var(), var()
+
+def grandmother(x, z):
+    return lall(parent(x, y), parent(y, z), female(x))
+
+print("Grandmother of alice:", run(0, x, grandmother(x, "alice")))
