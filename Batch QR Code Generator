@@ -1,0 +1,6 @@
+import qrcode
+
+urls = ["https://google.com", "https://example.com"]
+for i, url in enumerate(urls, 1):
+    img = qrcode.make(url)
+    img.save(f"qr_{i}.png")
