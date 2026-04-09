@@ -1,0 +1,5 @@
+def ascii_art(text):
+    for char in text:
+        print(" ".join(bin(ord(char))[2:].rjust(8, "0")))
+
+ascii_art("Hi!")
