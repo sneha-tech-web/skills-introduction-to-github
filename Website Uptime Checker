@@ -1,0 +1,10 @@
+import requests
+
+urls = ["https://www.google.com", "https://example.com"]
+for url in urls:
+    try:
+        r = requests.get(url, timeout=5)
+        status = "UP" if r.status_code == 200 else "DOWN"
+    except:
+        status = "DOWN"
+    print(f"{url} is {status}")
