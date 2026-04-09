@@ -1,0 +1,8 @@
+import time
+
+def pomodoro(minutes=25):
+    print(f"Starting {minutes}-minute Pomodoro...")
+    time.sleep(minutes*60)
+    print("Time's up! Take a break. ⏰")
+
+pomodoro(0.1)  # For testing, 6 seconds
