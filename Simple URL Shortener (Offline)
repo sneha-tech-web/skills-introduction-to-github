@@ -1,0 +1,7 @@
+import random, string
+
+def shorten(url):
+    code = "".join(random.choices(string.ascii_letters+string.digits, k=6))
+    return f"http://short.url/{code}"
+
+print(shorten("https://example.com/very/long/url"))
