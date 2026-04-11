@@ -1,0 +1,15 @@
+import os
+import shutil
+
+folder = input("Enter folder path: ")
+
+for file in os.listdir(folder):
+    if file.endswith(".jpg") or file.endswith(".png"):
+        os.makedirs(folder + "/Images", exist_ok=True)
+        shutil.move(folder + "/" + file, folder + "/Images/" + file)
+
+    elif file.endswith(".pdf"):
+        os.makedirs(folder + "/PDFs", exist_ok=True)
+        shutil.move(folder + "/" + file, folder + "/PDFs/" + file)
+
+print("Files organized!")
