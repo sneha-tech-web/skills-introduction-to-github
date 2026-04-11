@@ -1,0 +1,6 @@
+import random
+
+names = ["Asha", "Ravi", "Neha", "John", "Sara"]
+
+for i in range(5):
+    print(random.choice(names), random.randint(18, 30))
