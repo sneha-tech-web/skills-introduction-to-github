@@ -1,0 +1,9 @@
+import random
+
+subjects = ["I", "My teacher", "My friend", "My laptop"]
+verbs = ["broke", "destroyed", "forgot", "ate"]
+objects = ["my code", "the exam paper", "the project", "my brain"]
+
+print(random.choice(subjects),
+      random.choice(verbs),
+      random.choice(objects))
