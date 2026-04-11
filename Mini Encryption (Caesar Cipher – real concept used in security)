@@ -1,0 +1,12 @@
+text = input("Enter text: ")
+shift = 3
+
+result = ""
+
+for char in text:
+    if char.isalpha():
+        result += chr(ord(char) + shift)
+    else:
+        result += char
+
+print("Encrypted:", result)
