@@ -1,0 +1,2 @@
+log = input("Type something: ")
+print("You typed:", log)
