@@ -1,0 +1,5 @@
+text = "Python"
+print(text[0])  # Output: P
+print(text[2])  # Output: t
+print(text[-1])  # Output: n
+print(text[-3])  # Output: h
