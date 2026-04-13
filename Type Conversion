@@ -1,0 +1,4 @@
+x = "10"  # x is a string
+y = int(x)  # Convert string to integer
+z = float(y)  # Convert integer to float
+print(z)  # Output: 10.0
