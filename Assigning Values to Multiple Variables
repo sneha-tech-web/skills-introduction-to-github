@@ -1,0 +1,4 @@
+x, y, z = 10, 20, 30
+print(x)  # Output: 10
+print(y)  # Output: 20
+print(z)  # Output: 30
