@@ -1,0 +1,11 @@
+arr = [1, 2, 2, 3, 1, 4]
+
+seen = set()
+result = []
+
+for x in arr:
+    if x not in seen:
+        result.append(x)
+        seen.add(x)
+
+print(result)
