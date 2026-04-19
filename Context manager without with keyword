@@ -1,0 +1,12 @@
+class Custom:
+    def __enter__(self):
+        print("Enter")
+        return self
+
+    def __exit__(self, exc_type, exc, tb):
+        print("Exit")
+
+cm = Custom()
+cm.__enter__()
+print("Inside block")
+cm.__exit__(None, None, None)
