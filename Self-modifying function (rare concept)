@@ -1,0 +1,11 @@
+def weird():
+    print("First call")
+
+    def new():
+        print("Changed behavior!")
+
+    global weird
+    weird = new
+
+weird()
+weird()
