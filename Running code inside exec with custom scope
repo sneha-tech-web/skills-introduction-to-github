@@ -1,0 +1,6 @@
+code = "result = x + y"
+
+custom_scope = {"x": 10, "y": 20}
+exec(code, {}, custom_scope)
+
+print(custom_scope["result"])  # 30
