@@ -1,0 +1,11 @@
+import types
+
+code = compile("return x * 2", "<string>", "exec")
+
+def make_func():
+    def temp():
+        pass
+    return types.FunctionType(code.co_consts[0], {"x": 5})
+
+f = make_func()
+print(f())  # 10
