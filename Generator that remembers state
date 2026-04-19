@@ -1,0 +1,13 @@
+def state_machine():
+    state = "START"
+    while True:
+        inp = yield state
+        if inp == "go":
+            state = "RUNNING"
+        elif inp == "stop":
+            state = "STOPPED"
+
+sm = state_machine()
+print(next(sm))        # START
+print(sm.send("go"))   # RUNNING
+print(sm.send("stop")) # STOPPED
