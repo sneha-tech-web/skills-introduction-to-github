@@ -1,0 +1,8 @@
+class Mystery:
+    def __getattr__(self, name):
+        return f"You tried to access '{name}', but it doesn't exist!"
+
+obj = Mystery()
+print(obj.hello)
+print(obj.anything)
+
