@@ -1,0 +1,4 @@
+name = input("Enter your name: ").upper()
+
+for char in name:
+    print(char * 5)
