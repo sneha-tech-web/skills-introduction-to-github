@@ -1,0 +1,10 @@
+name = input("Enter your name: ")
+
+result = ""
+for i, c in enumerate(name):
+    if i % 2 == 0:
+        result += c.upper()
+    else:
+        result += c.lower()
+
+print("Styled Name:", result)
