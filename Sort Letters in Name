@@ -1,0 +1,4 @@
+name = input("Enter your name: ")
+
+sorted_name = "".join(sorted(name))
+print("Sorted Name:", sorted_name)
