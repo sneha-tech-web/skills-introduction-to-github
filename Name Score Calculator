@@ -1,0 +1,4 @@
+name = input("Enter your name: ").lower()
+
+score = sum(ord(c) - 96 for c in name if c.isalpha())
+print("Name Score:", score)
