@@ -1,0 +1,9 @@
+name = input("Enter your name: ")
+
+score = 0
+if any(c.isupper() for c in name): score += 1
+if any(c.islower() for c in name): score += 1
+if any(c.isdigit() for c in name): score += 1
+if len(name) >= 6: score += 1
+
+print("Strength Score:", score, "/4")
