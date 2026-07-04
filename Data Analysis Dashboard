@@ -1,0 +1,37 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load dataset (you can replace with your own CSV file)
+# Example CSV format: Name,Sales,Profit
+data = {
+    "Name": ["A", "B", "C", "D", "E"],
+    "Sales": [100, 200, 150, 300, 250],
+    "Profit": [20, 50, 30, 80, 60]
+}
+
+df = pd.DataFrame(data)
+
+# Display dataset
+print("\nDataset:\n", df)
+
+# Basic analysis
+print("\nTotal Sales:", df["Sales"].sum())
+print("Average Sales:", df["Sales"].mean())
+print("Total Profit:", df["Profit"].sum())
+
+# Plot Sales Bar Chart
+plt.figure()
+plt.bar(df["Name"], df["Sales"])
+plt.title("Sales by Category")
+plt.xlabel("Category")
+plt.ylabel("Sales")
+
+# Plot Profit Line Chart
+plt.figure()
+plt.plot(df["Name"], df["Profit"], marker='o')
+plt.title("Profit Trend")
+plt.xlabel("Category")
+plt.ylabel("Profit")
+
+# Show charts
+plt.show()
