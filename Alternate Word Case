@@ -1,0 +1,12 @@
+name = input("Enter full name: ")
+
+words = name.split()
+result = []
+
+for i, w in enumerate(words):
+    if i % 2 == 0:
+        result.append(w.upper())
+    else:
+        result.append(w.lower())
+
+print("Result:", " ".join(result))
