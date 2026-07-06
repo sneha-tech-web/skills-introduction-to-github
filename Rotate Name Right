@@ -1,0 +1,4 @@
+name = input("Enter name: ")
+
+rotated = name[-1] + name[:-1]
+print("Rotated:", rotated)
