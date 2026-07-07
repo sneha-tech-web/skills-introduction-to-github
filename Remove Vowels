@@ -1,0 +1,6 @@
+name = input("Enter name: ").lower()
+
+vowels = "aeiou"
+result = "".join(c for c in name if c not in vowels)
+
+print("Without vowels:", result)
