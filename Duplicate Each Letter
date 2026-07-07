@@ -1,0 +1,4 @@
+name = input("Enter name: ")
+
+result = "".join(c*2 for c in name)
+print("Duplicated:", result)
