@@ -1,0 +1,9 @@
+name = input("Enter name: ")
+
+freq = {c: name.count(c) for c in set(name)}
+sorted_chars = sorted(freq, key=freq.get, reverse=True)
+
+if len(sorted_chars) > 1:
+    print("Second most frequent:", sorted_chars[1])
+else:
+    print("Not enough characters")
