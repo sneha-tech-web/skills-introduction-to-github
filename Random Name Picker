@@ -1,0 +1,6 @@
+import random
+
+names = input("Enter names (comma separated): ").split(",")
+
+winner = random.choice(names)
+print("Selected Name:", winner.strip())
