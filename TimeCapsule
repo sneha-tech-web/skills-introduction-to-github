@@ -1,0 +1,6 @@
+message = input("Write a message to your future self: ")
+year = input("Open in year: ")
+
+print("\n--- Time Capsule Saved ---")
+print("Message:", message)
+print("To be opened in:", year)
