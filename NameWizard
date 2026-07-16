@@ -1,0 +1,7 @@
+name = input("Enter your name: ")
+
+print("Stylish versions:")
+print(name.upper())
+print(name.lower())
+print(name[::-1])
+print("✨" + name + "✨")
