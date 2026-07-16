@@ -1,0 +1,6 @@
+import random
+
+name = input("Enter your name: ")
+lucky = random.randint(1, 100)
+
+print(f"{name}, your lucky number is:", lucky)
